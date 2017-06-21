@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'bootstrap3/css/bootstrap.min.css' %}" />
+    <script type='text/javascript' src="{% static 'scripts/jquery-3.min.js' %}" > </script>
+    <script type='text/javascript' src="{% static 'bootstrap3/js/bootstrap.min.js' %}" > </script>
+    
+    <title> {% block title %} Data Panel {% endblock title %}</title>
+    
+    {% block head_plus %}
+    
+    {% endblock head_plus %}
+
+</head>
+
+<body>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        {% block content %}
+
+
+        {% endblock %}
+
+    </div>
+    <div class="col-md-2"></div>
+
+</div>
+    
+    {% block body_end_plus %}
+        
+    {% endblock body_end_plus %}
+</body>
+</html>
+

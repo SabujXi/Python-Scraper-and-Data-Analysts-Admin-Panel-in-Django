@@ -1,0 +1,12 @@
+certifi==2017.4.17
+chardet==3.0.4
+Django==1.11.2
+get==0.0.0
+idna==2.5
+post==0.0.0
+public==0.0.0
+pytz==2017.2
+query-string==0.0.0
+requests==2.18.1
+setupfiles==0.0.50
+urllib3==1.21.1
