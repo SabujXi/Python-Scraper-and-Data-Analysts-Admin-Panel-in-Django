@@ -1,0 +1,53 @@
+{% extends "./base.html" %}
+{% load bootstrap %}
+
+{% block content %}
+    City: &nbsp; {{ city }}
+    <hr>
+    <table id="data-table" class="table table-bordered table-responsive">
+        <tr>
+            <td>Edit</td>
+            <td>Delete</td>
+            <th> id </th> <th>City </th> <th> Not Found? </th> <th> Name </th> <th> DBA </th> <th> phone </th> <th>carrier type</th>
+            <th>active trucks</th> <th> mailing address </th> <th> effective date </th> <th>Checked manually?</th> <th> Record Url </th>
+        </tr>
+    {% for d in data_s %}
+        <tr id="data-id-{{d.id}}">
+            <td> <a href="{% url 'data:data_form' data_id=d.id %}"> edit </a> </td>  <td> <a href="{% url 'data:delete_data' data_id=d.id %}">delete</a> </td>
+            <td> {{d.id}} </td> <td> {{d.city}} </td>
+
+            <td> {%  if d.city_data_not_found %} <span style="background-color: red">X</span> {% endif %}</td>
+
+            <td> {{d.name}} </td> <td> {{s.dba}} </td> <td>{{ d.phone }}</td>
+            <td>{{ d.carrier_type }}</td> <td> {{ d.active_trucks }} </td>
+            <td> {{ d.mailing_address|linebreaks }} </td> <td>{{ d.effective_date }}</td>
+            <td>{{ d.checked_manually|yesno:"Yes,No,-" }}</td>
+            <td>{% if not d.city_data_not_found %} <a href="{{ d.record_url }}">Record Link</a> {% endif %}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
+
+{% block body_end_plus %}
+    <script>
+        var all_data = {{ data_s }};
+
+{#        $(document).ready(function () {#}
+{#                var data_table = $("#data-table");#}
+{##}
+{#                all_data.forEach(function(d, idx, arr){#}
+{#                    var str =#}
+{#                        '<tr id="data-id-"' + d.id + '">' +\#}
+{#                        '<td>' + d.id + '</td> <td>' {{tag.slug}} </td> <td> {{tag.title}} </td> <td> {{tag.language_code}} </td> <td> {{tag.description|truncatechars:100}} </td> <td> <a href="{% url 'sabuj_me_webapp:new_or_edit_tag' tag_id=tag.id %}"> edit </a> </td>  <td> <a href="{% url 'sabuj_me_webapp:delete_tag' tag.id %}">delete</a> </td>#}
+{#                    </tr>';#}
+{#                });#}
+{##}
+{##}
+{#            }#}
+{#        );#}
+
+        function onClick_data_edit(evt){
+
+        }
+    </script>
+{% endblock body_end_plus %}

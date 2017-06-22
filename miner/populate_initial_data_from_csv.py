@@ -1,9 +1,12 @@
-import cli_app
+import sys, os.path
+root_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+sys.path.append(root_dir)
+print(root_dir)
 import csv
 
 from data.models import DataModel
 
-with open("data.csv", newline='') as cr:
+with open("data/data.csv", newline='') as cr:
     csvreader = csv.reader(cr)
     idx = 0
     for row in csvreader:
@@ -45,7 +48,7 @@ with open("data.csv", newline='') as cr:
             d.phone = phone
             d.carrier_type = carrier_type
             d.active_trucks = int(active_trucks)
-            d.mailing_address = mailing_address
+            d.mailing_address = mailing_address.strip()
             d.effective_date = effective_date
             d.active_no = active_no
             d.record_url = "https://www.tdlr.texas.gov/tools_search/mccs_display.asp?mcrnumber=" + active_no

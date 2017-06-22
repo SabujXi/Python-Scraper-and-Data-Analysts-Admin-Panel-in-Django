@@ -10,7 +10,7 @@ class DataModel(models.Model):
     dba = models.CharField(max_length=256,  default="")
     phone = models.CharField(max_length=256, default="")
     carrier_type = models.CharField(max_length=256, default="")
-    active_trucks = models.IntegerField(default=0)
+    active_trucks = models.IntegerField(default=-1)
     mailing_address = models.CharField(max_length=256, default="")
     effective_date = models.CharField(max_length=256, default="")
 

@@ -1,6 +1,8 @@
+beautifulsoup4==4.6.0
 certifi==2017.4.17
 chardet==3.0.4
 Django==1.11.2
+django-bootstrap-form==3.2.1
 get==0.0.0
 idna==2.5
 post==0.0.0

@@ -1,0 +1,15 @@
+{% extends "./base.html" %}
+{% load bootstrap %}
+
+{% block content %}
+
+
+
+
+    <br/>
+    <br/>
+    Go to the city: {{ city }} {% if city %} <a href="{% url 'data:list_data' city=city %}">{{ city }}</a> {% endif %}
+    <br/>
+    <br/>
+
+{% endblock %}
