@@ -11,4 +11,4 @@ pytz==2017.2
 query-string==0.0.0
 requests==2.18.1
 setupfiles==0.0.50
-urllib3==1.21.1
+urllib3==1.26.5
